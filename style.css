@@ -1,0 +1,98 @@
+/* ---------------------------
+      🌟 MOBILE-FIRST (DEFAULT)
+----------------------------*/
+
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr;   /* One column */
+    gap: 10px;                    /* Grid gap */
+}
+
+.box {
+    background: white;
+    padding: 20px;
+    border: 3px solid #ccc;
+    color: #222;
+}
+
+.pic {
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* ---------------------------
+      🌟 TABLET (min-width: 772px)
+----------------------------*/
+
+@media (min-width: 772px) {
+    .container {
+        grid-template-columns: repeat(2, 1fr); /* Two columns */
+    }
+
+    .box {
+        border-radius: 20px; /* Rounded shapes */
+    }
+
+    .box:last-child {
+        grid-column: 1 / -1; /* Last box spans both columns */
+    }
+}
+
+/* ---------------------------
+      🌟 LARGE SCREEN (min-width: 992px)
+----------------------------*/
+
+@media (min-width: 992px) {
+    .box {
+        border-radius: 0; /* Remove rounding */
+    }
+
+    .box:nth-child(3n) {
+        grid-column: span 2; /* Every 3rd box spans two columns */
+    }
+}
+
+/* ---------------------------
+      🌟 REDUCED MOTION
+----------------------------*/
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto; /* Disable smooth scroll */
+    }
+
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* ---------------------------
+      🌙 DARK MODE
+----------------------------*/
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background: #111;
+        color: #eee;
+    }
+
+    .box {
+        background: #222;
+        color: #ffea00; /* Light yellow */
+        border-color: black;
+    }
+}
